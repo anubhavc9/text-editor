@@ -11,7 +11,7 @@ class Application(Frame):
 
     def create_widgets(self):
         self.text1 = Text(width=20, height=20)
-        self.text1.pack(expand=YES, fill=BOTH)  # to make the textbox fill entire window
+        self.text1.pack(expand=YES, fill=BOTH)
 
         menubar = Menu(self)
         filemenu = Menu(menubar)
@@ -53,14 +53,13 @@ class Application(Frame):
 
     def paste(self):
         # Insert the clipboard text into the textbox
-        result = self.selection_get(selection="CLIPBOARD")  # get text from clipboard
+        result = self.selection_get(selection="CLIPBOARD")
         self.text1.insert("1.0", result)
 
     def clear(self):
         self.text1.delete("1.0", END)
 
     def wordCount(self):
-        # Get text from textbox and split it by whitespace characters into a list. Then find length of list
         userText = self.text1.get("1.0", END)
         wordList = userText.split()
         number_of_words = len(wordList)
